@@ -1,0 +1,14 @@
+# never publish the internal build: it carries CRM relationship data
+private-do-not-publish/
+
+# shared tracker workbook stays local
+*.xlsx
+
+.venv/
+__pycache__/
+.DS_Store
+Thumbs.db
+
+# personal documents (resumes, questionnaires) stay local
+*.docx
+*.pdf
