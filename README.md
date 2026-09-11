@@ -132,11 +132,17 @@ If you would rather not have a public URL:
   Interviewing, Offer, Passed) and a five-star rating. Click the current star again to clear
   it. Filter chips for status and for minimum rating sit next to the person button, and the
   sort menu has a "my rating" order.
-- **Where it is stored.** A small JSON database in the browser's local storage, one table per
-  person. Nothing reaches a server. To move marks between browsers or between the two of you,
-  use **Export tracking** in the footer to save a JSON file, then **Import tracking** on the
-  other side. Import merges by timestamp, so newer marks win and nothing older overwrites
-  newer. The Excel workbook remains the shared tracker of record.
+- **Where it is stored.** Marks are shared through a small Supabase database (project
+  `chi-sales-board` in the Apex Adventure Alliance organization, table `public.marks`), so both
+  of you see the same statuses and ratings on any device and changes appear live. The browser
+  keeps a local copy as a cache and offline fallback; the footer says "shared, live" when the
+  connection is up. **Export tracking** writes both sets to a JSON file as a backup and **Import
+  tracking** merges one back in; newer marks win everywhere, including on the server.
+- **Database setup.** `db/schema.sql` is the table, row-level security and the newer-wins trigger.
+  `db/setup_supabase.py` creates the project from a Supabase access token, applies the schema and
+  writes the URL and anon key into `website/index.html`. The anon key in the page can only read
+  and write the marks table. The Postgres password is in the 1Password item
+  "chi-sales-board supabase".
 - **Postings expire.** Everything was compiled on 10 September 2026, with 52 resume-matched roles added on 11 September. Confirm any role is
   still open before spending real time on it.
 - **Filters** live in the sticky bar: seniority band, tier, buyer type, sector, location,
