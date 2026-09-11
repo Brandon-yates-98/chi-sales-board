@@ -1,6 +1,6 @@
 # Chicago Public Sector Sales Board
 
-A single self-contained web page listing 509 sales openings in Chicago and Illinois,
+A single self-contained web page listing 491 sales openings in Chicago and Illinois,
 scored on the experience each posting actually asks for and on who signs the contract.
 
 Everything is in `index.html`. No build step, no dependencies, no server code. The only
@@ -13,7 +13,7 @@ blocked.
 
 | File | What it is | Who should see it |
 |---|---|---|
-| `index.html` | The shareable site. 509 roles. No CRM data, no names. | Anyone you send the link to |
+| `index.html` | The shareable site. 491 roles. No CRM data, no names. | Anyone you send the link to |
 | `index-internal.html` | Same page plus the 832-company warm-intro table pulled from HubSpot, with joint deal counts and HubSpot record links. | You only. Do not host this publicly. |
 
 `index-internal.html` is included so you have one file with everything. If you publish it
@@ -125,7 +125,7 @@ If you would rather not have a public URL:
 ## Notes on the page itself
 
 - **Opening screen.** The page opens on a choice between Stephen and Frank. Each has their
-  own set of statuses and star ratings on the same 509 roles, and the card shows a summary
+  own set of statuses and star ratings on the same 491 roles, and the card shows a summary
   of what that person has tracked so far. Switch person from the "Tracking for" button in
   the filter bar or the link in the footer.
 - **Status and rating** live on every row: a status dropdown (Interested, Applied,
@@ -143,7 +143,7 @@ If you would rather not have a public URL:
   writes the URL and anon key into `website/index.html`. The anon key in the page can only read
   and write the marks table. The Postgres password is in the 1Password item
   "chi-sales-board supabase".
-- **Postings expire.** Everything was compiled on 10 September 2026, with 52 resume-matched roles added on 11 September. Confirm any role is
+- **Postings expire.** Everything was compiled on 10 September 2026, with 52 resume-matched roles and 59 commercial-fit roles added on 11 September. The same day, 77 roles that would have meant relocating from Chicago were removed and roles leaning on industry or technical experience were downgraded. Confirm any role is
   still open before spending real time on it.
 - **Filters** live in the sticky bar: seniority band, tier, buyer type, sector, location,
   plus toggles for published pay, confirmed-open requisitions, and roles that were filtered
